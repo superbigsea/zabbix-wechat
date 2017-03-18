@@ -34,7 +34,8 @@ mv /etc/zabbix/pub.pub /etc/zabbix/pub.key
 ### 3、生成cookies
 ### 4、配置主服务器地址、配置ttserver地址
 ### 5、配置zabbix的action
-##  mysql server 安装
-##  redis server 安装
-##  ttserver 安装 
-## python3+django 安装
+## mysql server 安装
+## redis server 安装
+## ttserver 安装 
+## python3+django 安装 
+## 微信企业号的配置
