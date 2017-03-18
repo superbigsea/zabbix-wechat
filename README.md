@@ -21,4 +21,4 @@
 1、zabbix server端报警脚本，主要将zabbix server传递过来的报警信息进行一定的格式处理，进行需要python3的支持
 2、主服务器：采用python3+django
 3、其他组件：mysql、redis（缓存微信token，也可以用memcacahed）、tt server（用来存放报警的图片和文字信息，不考虑高可用的话直接用Apache也可以）
-------
+
