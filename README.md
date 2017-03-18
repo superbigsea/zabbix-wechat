@@ -25,12 +25,12 @@
 ### 5、一个微信企业号
 ## 四 安装部署
 ### zabbix server 报警插件
-1、生成密钥对  
+####1、生成密钥对  
 ``` shell
 ssh-keygen -b 4096 -t rsa -f /etc/zabbix/pub
 mv /etc/zabbix/pub.pub /etc/zabbix/pub.key
 ```
-2、安装python3将all.py拷贝到zabbix的alertscripts目录，配置alertscripts
-3、生成cookies
-4、配置主服务器地址、配置ttserver地址
-5、配置zabbix的action
+####2、安装python3将all.py拷贝到zabbix的alertscripts目录，配置alertscripts
+####3、生成cookies
+####4、配置主服务器地址、配置ttserver地址
+####5、配置zabbix的action
