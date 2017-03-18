@@ -28,4 +28,5 @@
 1、生成密钥对  
 ``` shell
 ssh-keygen -b 4096 -t rsa -f /etc/zabbix/pub
+mv /etc/zabbix/pub.pub /etc/zabbix/pub.key
 ```
