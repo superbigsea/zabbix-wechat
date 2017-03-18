@@ -17,11 +17,13 @@
 
 
 ```flow
-st=>start: zabbix触发报警
+st: 起始
+register: 注册
+condition: 好人?
+check: 盘查一下
+end: 终了
 
-op=>operation: 生成历史图
-
-
-st->op->e
-
+st > condition
+condition(y) > register > end
+condition(n) > check > register
 ```
