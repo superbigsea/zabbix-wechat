@@ -14,16 +14,5 @@
 本项目目的是在微信端搭建一个兼容各个监控系统的统一报警处理系统，能实现报警提醒，报警压缩，报警分类，报警汇总报表等功能。
 
 ## 二 流程
+![](https://github.com/superbigsea/zabbix-wechat/blob/master/%E6%8A%A5%E8%AD%A6%E6%B5%81%E7%A8%8B.png)
 
-
-```flow
-st: 起始
-register: 注册
-condition: 好人?
-check: 盘查一下
-end: 终了
-
-st > condition
-condition(y) > register > end
-condition(n) > check > register
-```
