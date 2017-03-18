@@ -21,7 +21,7 @@
 ### 1、zabbix server端报警脚本，主要将zabbix server传递过来的报警信息进行一定的格式处理，进行需要python3的支持
 ### 2、主服务器：采用python3+django
 ### 3、其他组件：mysql、redis（缓存微信token，也可以用memcacahed）、tt server（用来存放报警的图片和文字信息，不考虑高可用的话直接用Apache也可以）
-### 4、一个二级域名 
+### 4、一个80端口二级域名 
 ### 5、一个微信企业号
 ## 四 安装部署
 ### zabbix server 报警插件
@@ -30,3 +30,7 @@
 ssh-keygen -b 4096 -t rsa -f /etc/zabbix/pub
 mv /etc/zabbix/pub.pub /etc/zabbix/pub.key
 ```
+2、安装python3将all.py拷贝到zabbix的alertscripts目录，配置alertscripts
+3、生成cookies
+4、配置主服务器地址、配置ttserver地址
+5、配置zabbix的action
