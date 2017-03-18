@@ -2,4 +2,4 @@ Zabbix-Alert-WeChat
 
 zabbix微信报警
 
-作者:火星小刘 邮箱:xtlyk@163.com
+作者:superbigsea 邮箱:29338383@qq.com qq群238705984
