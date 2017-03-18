@@ -25,3 +25,7 @@
 ### 5、一个微信企业号
 ## 四 安装部署
 ### zabbix server 报警插件
+1、生成密钥对  
+``` shell
+ssh-keygen -b 4096 -t rsa -f /etc/zabbix/pub
+```
