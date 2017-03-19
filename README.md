@@ -22,7 +22,7 @@ The purpose of this project is to build up an alarm auto-notification system whi
 ## 2.Main Architecture:python3+django 1.10
 ## 3.Other components：mysql、redis(Used to cache wechat's token, you can also use memcacahed),tt server(Object storage,you can also use others like swift or ceph.)
 ## 4.An secondary domain with 80 and 1978 ports open.
-## 5.A WeChat Official Accounts . It can be registered in https://qy.weixin.qq.com/ 
+## 5.A WeChat Official Accounts . It can be registered in https://admin.wechat.com/ or https://qy.weixin.qq.com/  
 # Install the deployment
  
 The entire installation configuration is more complex, the use of more components.
@@ -105,7 +105,9 @@ url=http://**************
 host=****
 port=****
 ```
-其中上面4条为微信企业号的配置，可以参考https://github.com/X-Mars/Zabbix-Alert-WeChat
+
+The top 4 configuration can be referenced  in  https://github.com/X-Mars/Zabbix-Alert-WeChat.
+
 url 为服务器80端口的域名 
 ### 2、配置数据库连接
 ```
