@@ -69,8 +69,8 @@ mkdir /ttdata/
 ```
 ## （五）python3+django 安装 以及其他配置
 ``` shell
- yum install python34 python34-pip
-
+ yum install python34 python34-pip python34-devel
+pip3 install django  pymysql django_crontab redis  pycrypto
 ```
 ### 1、将 上一节中生成的私钥文件 copy到 /etc/zabbix/pri.key
 编辑/etc/zabbix/wechat.conf
@@ -103,4 +103,10 @@ DATABASES = {
 }
 
 ``` 
+### 3、初始化数据库
+python3  manage.py  makemigrations
+### 4、运行程序
+python3  manage.py runserver 0.0.0.0:80
+
 ## 微信企业号的配置
+
