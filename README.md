@@ -122,8 +122,9 @@ DATABASES = {
 ``` 
 ### 3、初始化数据库
 python3  manage.py  makemigrations
-### 微信企业号菜单配置
-### 4、运行程序
+### 4、微信企业号菜单配置
+
+### 5、运行程序
 
 python3  manage.py runserver 0.0.0.0:80
 
