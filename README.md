@@ -46,8 +46,8 @@ curl -c /tmp/zabbix_cookie -d "name=Admin&password=zabbix&autologin=1&enter=Sign
 ``` shell
 {TRIGGER.NAME}@@@{TRIGGER.DESCRIPTION}@@@{HOSTNAME}@@@{TRIGGER.SEVERITY}@@@{ITEM.ID}@@@{TRIGGER.STATUS}@@@{HOST.CONN}@@@{TRIGGER.HOSTGROUP.NAME}@@@{EVENT.ID}@@@
 ```
-![](https://github.com/superbigsea/zabbix-wechat/blob/master/1.png)
-![](https://github.com/superbigsea/zabbix-wechat/blob/master/2.png)
+![](https://github.com/superbigsea/zabbix-wechat/blob/master/1.PNG)
+![](https://github.com/superbigsea/zabbix-wechat/blob/master/2.PNG)
 action 只需要传送一个参数，
 
 ## （二）mysql server 安装
