@@ -73,7 +73,7 @@ mkdir /ttdata/
 pip3 install django  pymysql django_crontab redis  pycrypto
 ```
 ### 1、将 上一节中生成的私钥文件 copy到 /etc/zabbix/pri.key
-编辑/etc/zabbix/wechat.conf
+### 2 、编辑/etc/zabbix/wechat.conf
 ``` shell
 [wechat]
 corp_id=******************
@@ -84,7 +84,8 @@ url=http://**************
 [redis]
 host=****
 port=****
-``` 
+```其中上面4条为微信企业号的配置，可以参考https://github.com/X-Mars/Zabbix-Alert-WeChat
+url 为服务器80端口的域名
 ### 2、配置数据库连接
 ```
 vim zabbixwechat/settings.py
@@ -105,8 +106,10 @@ DATABASES = {
 ``` 
 ### 3、初始化数据库
 python3  manage.py  makemigrations
+### 微信企业号菜单配置
 ### 4、运行程序
+
 python3  manage.py runserver 0.0.0.0:80
 
-## 微信企业号的配置
+
 
