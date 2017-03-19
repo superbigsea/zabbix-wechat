@@ -13,6 +13,14 @@
 # Introduction
 
 The purpose of this project is to build up an  auto-notification  alarm system which is compatible with most monitoring system,which includes the functions such as reminder alarm, alarm compression, alarm classification, alarm summary report etc... Readers need to have some  experiences in linux, python, zabbix.  Requires python3 support.
+
+## ScreenShots
+![](https://github.com/superbigsea/zabbix-wechat/blob/master/s1.png)
+![](https://github.com/superbigsea/zabbix-wechat/blob/master/s2.png)
+![](https://github.com/superbigsea/zabbix-wechat/blob/master/s3.png)
+![](https://github.com/superbigsea/zabbix-wechat/blob/master/s4.png)
+![](https://github.com/superbigsea/zabbix-wechat/blob/master/s5.png)
+![](https://github.com/superbigsea/zabbix-wechat/blob/master/s6.png)
 # Flow
 ![](https://github.com/superbigsea/zabbix-wechat/blob/master/4.PNG)
 
