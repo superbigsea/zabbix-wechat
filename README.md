@@ -24,7 +24,7 @@
 ## 4、一个80端口二级域名 
 ## 5、一个微信企业号
 # 四 安装部署
-## zabbix server 报警插件
+## (一)zabbix server 报警插件
 ### 1、生成密钥对  
 ``` shell
 ssh-keygen -b 4096 -t rsa -f /etc/zabbix/pub
@@ -34,11 +34,17 @@ mv /etc/zabbix/pub.pub /etc/zabbix/pub.key
 ### 3、生成cookies
 ### 4、配置主服务器地址、配置ttserver地址
 ### 5、配置zabbix的action
-## mysql server 安装
-
-## redis server 安装
-## ttserver 安装 
-## python3+django 安装
+## （二）mysql server 安装
+``` shell
+yum install mariadb-server -y
+systemctl enable mariadb
+systemctl start mariadb
+CREATE DATABASE `alarm` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci; #
+grant all privileges on *.* to alarm@localhost identified by 'alarm';
+```
+## （三）redis server 安装
+## （四）ttserver 安装 
+## （五）python3+django 安装 以及其他配置
 ### 1、将 上一节中生成的私钥文件 copy到 /etc/zabbix/pri.key
 编辑/etc/zabbix/wechat.conf
 ``` shell
