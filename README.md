@@ -12,7 +12,7 @@
 
 # 一、简介
 
-本项目目的是在微信端搭建一个兼容各个监控系统的统一报警处理系统，能实现报警提醒，报警压缩，报警分类，报警汇总报表等功能。主服务器实质上是一台位于公网上的http服务器，位于各地的zabbix server将报警信息经过初步处理后通过http post请求将信息传送至主服务器，主服务器将信息经过一定的处理再完成和微信端（报警接受者）进行处理，目前尚处于初级阶段，上文中的功能都可以实现，需要使用者有一定的linux、python、zabbix基础。
+本项目目的是在微信端搭建一个兼容各个监控系统的统一报警处理系统，能实现报警提醒，报警压缩，报警分类，报警汇总报表等功能。主服务器实质上是一台位于公网上的http服务器，位于各地的zabbix server将报警信息经过初步处理后通过http post请求将信息传送至主服务器，主服务器将信息经过一定的处理再完成和微信端（报警接受者）进行处理，上文中的功能都可以实现，需要使用者有一定的linux、python、zabbix基础。
 # 二 流程
 ![](https://github.com/superbigsea/zabbix-wechat/blob/master/%E6%8A%A5%E8%AD%A6%E6%B5%81%E7%A8%8B.png)
 
@@ -25,7 +25,7 @@
 ## 5、一个微信企业号
 # 四 安装部署
 ## zabbix server 报警插件
-###1、生成密钥对  
+### 1、生成密钥对  
 ``` shell
 ssh-keygen -b 4096 -t rsa -f /etc/zabbix/pub
 mv /etc/zabbix/pub.pub /etc/zabbix/pub.key
@@ -35,7 +35,22 @@ mv /etc/zabbix/pub.pub /etc/zabbix/pub.key
 ### 4、配置主服务器地址、配置ttserver地址
 ### 5、配置zabbix的action
 ## mysql server 安装
+
 ## redis server 安装
 ## ttserver 安装 
-## python3+django 安装 
+## python3+django 安装
+### 1、将 上一节中生成的私钥文件 copy到 /etc/zabbix/pri.key
+编辑/etc/zabbix/wechat.conf
+``` shell
+[wechat]
+corp_id=******************
+corp_secret=*******************
+toparty=***********
+agentid=*************
+url=http://**************
+[redis]
+host=****
+port=****
+
+```
 ## 微信企业号的配置
