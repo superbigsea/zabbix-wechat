@@ -22,7 +22,7 @@ The purpose of this project is to build up an alarm auto-notification system whi
 ## 2.Main Architecture:python3+django 1.10
 ## 3.Other components：mysql、redis(Used to cache wechat's token, you can also use memcacahed),tt server(Object storage,you can also use others like swift or ceph.)
 ## 4.An secondary domain with 80 and 1978 ports open.
-## 5.A WeChat Official Accounts . It can be registered in https://admin.wechat.com/ or https://qy.weixin.qq.com/  
+## 5.A WeChat Official Accounts （微信企业号）. It can be registered in https://admin.wechat.com/ or https://qy.weixin.qq.com/  
 # Install the deployment
  
 The entire installation configuration is more complex, the use of more components.
@@ -132,23 +132,23 @@ python3  manage.py  makemigrations
 ### (5) WeChat Official Accounts Configuration
 
 The configuration of the permissions of the message，also  reference https://github.com/X-Mars/Zabbix-Alert-WeChat
-If
-如果要在微信菜单添加 汇总表
-
- 先增加可信域名
+If you want to add the Summary Table
+ on the menu of Wechat：
+1.add the trusted domain name
  ![](https://github.com/superbigsea/zabbix-wechat/blob/master/3.PNG)
-在微信菜单中添加网页跳转
+2 . add an jump to
 
-设置如下
 https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx7dec596b2599614c&redirect_uri=http%3a%2f%2f*********%2fall&response_type=code&scope=snsapi_base&state=1&connect_redirect=1#wechat_redirect
+in the configuration。
+Replace ******* with the urlencode domain name
 
-把*******替换为 经过urlencode的域名
+http://tool.chinaz.com/tools/urlencode.aspx This URL can encode the domain name
 
-http://tool.chinaz.com/tools/urlencode.aspx 这个网址可以encode域名
-
-### 5、运行程序
+### (6) run it
 
 python3  manage.py runserver 0.0.0.0:80
+
+Enjoy!!!
 
 
 
