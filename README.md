@@ -12,7 +12,7 @@
 
 # Introduction
 
-The purpose of this project is to build an alarm infomation system that is compatible with each monitoring system，and also can  reminder alarm, alarm compression, alarm classification, alarm summary report and other functions。Readers need to have some linux, python, zabbix experience。
+The purpose of this project is to build an alarm infomation system that is compatible with common monitoring systems，and also can  reminder alarm, alarm compression, alarm classification, alarm summary report and other functions。Readers need to have some linux, python, zabbix experience。
 # Flow
 ![](https://github.com/superbigsea/zabbix-wechat/blob/master/4.PNG)
 
