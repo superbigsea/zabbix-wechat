@@ -21,9 +21,11 @@
 ## 1、zabbix server端报警脚本，主要将zabbix server传递过来的报警信息进行一定的格式处理，进行需要python3的支持
 ## 2、主服务器：采用python3+django
 ## 3、其他组件：mysql、redis（缓存微信token，也可以用memcacahed）、tt server（用来存放报警的图片和文字信息，不考虑高可用的话直接用Apache也可以）
-## 4、一个80端口二级域名 
+## 4、一个开启了80和1978端口的二级域名 
 ## 5、一个微信企业号
-# 四 安装部署
+# 四 安装部署 
+ 
+ 整个安装配置较为复杂，使用的组件较多
 ## (一)zabbix server 报警插件
 ### 1、生成密钥对  
 ``` shell
@@ -43,8 +45,33 @@ CREATE DATABASE `alarm` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci; #
 grant all privileges on *.* to alarm@localhost identified by 'alarm';
 ```
 ## （三）redis server 安装
+``` shell
+yum install redis
+systemctl enable redis
+systemctl start redis
+```
 ## （四）ttserver 安装 
+``` shell
+yum install bzip2-devel gcc zlib-devel -y
+wget http://fallabs.com/tokyotyrant/tokyotyrant-1.1.41.tar.gz
+wget http://fallabs.com/tokyocabinet/tokyocabinet-1.4.48.tar.gz
+tar zxvf tokyocabinet-1.4.48.tar.gz
+cd tokyocabinet-1.4.48
+./configure
+make && make install 
+ tar zxvf tokyotyrant-1.1.41.tar.gz
+ cd tokyotyrant-1.1.41
+ ./configure
+make && make install 
+mkdir /ttdata/
+./ttserver -port 1978 -thnum 8 -tout 30 -dmn -pid /ttdata/tt.pid -kl -log /ttdata/tt.log -le -ulog /ttdata -ulim 128m -sid 1 -rts /ttdata/tt.rts /ttdata/ttdb.tch
+
+```
 ## （五）python3+django 安装 以及其他配置
+``` shell
+ yum install python34 python34-pip
+
+```
 ### 1、将 上一节中生成的私钥文件 copy到 /etc/zabbix/pri.key
 编辑/etc/zabbix/wechat.conf
 ``` shell
@@ -57,6 +84,23 @@ url=http://**************
 [redis]
 host=****
 port=****
-
+``` 
+### 2、配置数据库连接
 ```
+vim zabbixwechat/settings.py
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'alarm',                      # Or path to database file if using sqlite3.
+        # The following settings are not used with sqlite3:
+        'USER': 'alarm',
+        'PASSWORD': 'alarm',
+        'HOST': 'alarm',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'PORT': '3306',                      # Set to empty string for default.
+        'TEST_CHARSET': 'utf8',
+        'TEST_COLLATION': 'utf8_general_ci',
+    }
+}
+
+``` 
 ## 微信企业号的配置
