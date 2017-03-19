@@ -23,7 +23,7 @@ The purpose of this project is to build up an alarm auto-notification system whi
 ## 3.Other components：mysql、redis(Used to cache wechat's token, you can also use memcacahed),tt server(Object storage,you can also use others like swift or ceph.)
 ## 4.An secondary domain with 80 and 1978 ports open.
 ## 5.A WeChat Official Accounts （微信企业号）. It can be registered in https://admin.wechat.com/ or https://qy.weixin.qq.com/  
-# Install the deployment
+# Install and deployment
  
 The entire installation configuration is more complex, the use of more components.
 ## 1 zabbix server alert scripts
