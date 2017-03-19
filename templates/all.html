@@ -1,0 +1,45 @@
+<html>
+<script src="http://code.jquery.com/jquery-1.4.4.min.js" type="text/javascript"></script>    <script type="text/javascript">
+        $(function() {
+           $("#checkAll").click(function() {
+                $('input[type="checkbox"]').attr("checked",this.checked);
+            });
+            var $subBox = $("input[type='checkbox']");
+            $subBox.click(function(){
+                $("#checkAll").attr("checked",$subBox.length == $("input[type='checkbox']:checked").length ? true : false);
+            });
+        });
+    </script>
+<body>
+{{  username  }}
+<table style="width100%;" cellpadding="2" cellspacing="0" border="1" bordercolor="#000000">
+<tbody>
+<tr><td>勾选确认</td><td>报警id</td><td>触发时间</td><td>报警内容</td><td>确认时间</td><td>确认用户</td><td>报警解除时间</td><td>确认间隔</td><td>解除间隔</td><td>主机</td><td>区域</td><tr>
+<form action="multcomfirm" method="GET" target="_blank">
+{% for i  in body %}
+<tr>
+{% if i.CONFIRM_TIME %}
+<td></td>
+{% else %}
+<td><input type="checkbox" name="{{i.id}}" value="on" /> </td>
+{% endif %}
+<td>{{i.id}}</td>
+<td>{{i.ALARM_TIME}}</td>
+<td>{{i.ALARM_TITLE}}</td>
+<td>{{i.CONFIRM_TIME}}</td>
+<td>{{i.CONFIRM_USER_ID}}</td>
+<td>{{i.RESOLVE_TIME}}</td>
+<td>{{i.CONFIRM_PERIOD}}</td>
+<td>{{i.RESOLVE_PERIOD}}</td>
+<td>{{i.HOST_NAME}}</td>
+<td>{{i.HOST_GROUP}}</td>
+{% endfor %}
+</tr>
+</tbody></table><br />
+<input type="submit" value="提交" />
+<input name="username" type="hidden" value="{{  username  }}" />
+<input name="agentid" type="hidden" value="{{  agentid  }}" />
+
+<input id="checkAll" type="checkbox" />全选
+</form>
+</html>

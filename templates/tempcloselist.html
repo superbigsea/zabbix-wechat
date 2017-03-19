@@ -1,0 +1,36 @@
+<html>
+<script src="http://code.jquery.com/jquery-1.4.4.min.js" type="text/javascript"></script>    <script type="text/javascript">
+        $(function() {
+           $("#checkAll").click(function() {
+                $('input[type="checkbox"]').attr("checked",this.checked);
+            });
+            var $subBox = $("input[type='checkbox']");
+            $subBox.click(function(){
+                $("#checkAll").attr("checked",$subBox.length == $("input[type='checkbox']:checked").length ? true : false);
+            });
+        });
+    </script>
+<body>
+{{  username  }}
+<table style="width100%;" cellpadding="2" cellspacing="0" border="1" bordercolor="#000000">
+<tbody>
+<tr><td>勾选关闭</td><td>停用开始时间</td><td>停用结束时间</td><td>操作用户</td><td>主机</td><td>报警标题</td><td>区域</td><tr>
+<form action="multremovetempcloselist" method="POST" target="_blank">
+{% for i  in body %}
+<tr>
+<td><input type="checkbox" name="{{i.id}}" value="on" /> </td>
+<td>{{i.BEGINTIME}}</td>
+<td>{{i.ENDTIME}}</td>
+<td>{{i.USER_ID}}</td>
+<td>{{i.HOST_NAME}}</td>
+<td>{{i.ALARM_TITLE}}</td>
+<td>{{i.HOST_GROUP}}</td>
+{% endfor %}
+</tr>
+</tbody></table><br />
+<input type="submit" value="提交" />
+<input name="username" type="hidden" value="{{  username  }}" />
+
+<input id="checkAll" type="checkbox" />全选
+</form>
+</html>

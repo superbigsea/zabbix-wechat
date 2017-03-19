@@ -1,0 +1,16 @@
+<html>
+<body>
+报警id:{{  ID  }}<br>
+报警内容:{{  ALARM_TITLE  }}<br>
+报警区域:{{  HOST_GROUP  }}<br>
+报警触发时间:{{  ALARM_TIME  }}<br>
+
+<form action="report" method="post">
+  <input type="text" name="message" />
+  <input name="id" type="hidden" value="{{  ID  }}">
+  <input name="comfirmuser" type="hidden" value="{{  username  }}">
+  <br>
+  <input type="submit" value="请输入内容，点击提交" />
+</form>
+
+</html>
