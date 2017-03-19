@@ -30,7 +30,7 @@ def singlecomfirm(request):
             CONFIRM_USER_ID=nickname)
         text = "确认状态：已确认 \n确认人：{0} \n{1} \n报警id：{2}".format(
             nickname, alarm_title, ID)
-        senddata(text,toparty,toagent)
+        senddata(text, toparty, toagent)
         respone = "确认成功"
     else:
         NICK_NAME = DATA.CONFIRM_USER_ID

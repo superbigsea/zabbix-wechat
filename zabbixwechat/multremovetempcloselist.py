@@ -17,10 +17,10 @@ def multremovetempcloselist(request):
         nickname = findnickname(username)
         for ID in request.POST:
             if ID != 'username':
-              TEMP_CLOSED.objects.filter(
+                TEMP_CLOSED.objects.filter(
                     id=ID).update(
                     REMOVED="ads")
 
-              print (ID)
+                print(ID)
         respone = "批量删成功"
     return HttpResponse(respone)
