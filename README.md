@@ -10,13 +10,13 @@
 
 ------
 
-#Introduction
+# Introduction
 
 The purpose of this project is to build an alarm infomation system that is compatible with each monitoring system，and also can  reminder alarm, alarm compression, alarm classification, alarm summary report and other functions。Readers need to have some linux, python, zabbix experience。
 # Flow
 ![](https://github.com/superbigsea/zabbix-wechat/blob/master/4.PNG)
 
-# 三 所需要的组件
+# The required components
 
 ## 1、zabbix server端报警脚本，主要将zabbix server传递过来的报警信息进行一定的格式处理，进行需要python3的支持
 ## 2、主服务器：采用python3+django
