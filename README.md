@@ -25,38 +25,38 @@ The purpose of this project is to build up an alarm auto-notification system whi
 ## 5.A WeChat Official Accounts . It can be registered in https://qy.weixin.qq.com/ 
 # Install the deployment
  
- 整个安装配置较为复杂，使用的组件较多
-## (一)zabbix server 报警插件
-### 1、安装python3 和相关插件
+The entire installation configuration is more complex, the use of more components.
+## 1 zabbix server alert scripts
+### (1) Install python3.4 and other components
 ``` shell
  yum install python34 python34-pip python34-devel
 pip3 install  pycrypto
 ```
-### 1、生成密钥对 
+### (2) Generates an rsa key pair
 ``` shell
 ssh-keygen -b 4096 -t rsa -f /etc/zabbix/pub
 mv /etc/zabbix/pub.pub /etc/zabbix/pub.key
 ```
-### 2、安装python3将zabbix_alarm_script/all.py拷贝到zabbix的alertscripts目录，编辑下面3个地方
+### (3) mv zabbix_alarm_script/all.py to zabbix alertscripts dir and edit it 
 ``` shell
-zabbix_server_charturl = "http://127.0.0.1/zabbix/chart.php"  ##zabbix server 绘图接口
-ttserver = "http://www.example.com:1978"   ##公网的ttserver 安装步骤见下面
-server_url = "http://www.example.com/getvalue" ##公网的主服务器接口
+zabbix_server_charturl = "http://127.0.0.1/zabbix/chart.php"  ##Zabbix server  chart api
+ttserver = "http://www.example.com:1978"   ##The url for ttserver over internet.
+server_url = "http://www.example.com/getvalue" ##The url for main process  over internet.
 ```
-### 3、生成cookies
+### (4) Generate cookies
 ``` shell
 curl -c /tmp/zabbix_cookie -d "name=Admin&password=zabbix&autologin=1&enter=Sign+in"  http://127.0.0.1/zabbix/index.php
 ```
-地址更改为zabbix server的地址，生成cookie的目的是便于脚本绘图时候不用认证了。
-### 5、配置zabbix的action
+Change  the username and passwd and zabbix url to your own setting.
+### (5)Config zabbix action
 ``` shell
 {TRIGGER.NAME}@@@{TRIGGER.DESCRIPTION}@@@{HOSTNAME}@@@{TRIGGER.SEVERITY}@@@{ITEM.ID}@@@{TRIGGER.STATUS}@@@{HOST.CONN}@@@{TRIGGER.HOSTGROUP.NAME}@@@{EVENT.ID}@@@
 ```
 ![](https://github.com/superbigsea/zabbix-wechat/blob/master/1.PNG)
 ![](https://github.com/superbigsea/zabbix-wechat/blob/master/2.PNG)
-action 只需要传送一个参数，
 
-## （二）mysql server 安装
+
+## 2 MySQL Server 
 ``` shell
 yum install mariadb-server -y
 systemctl enable mariadb
@@ -64,13 +64,13 @@ systemctl start mariadb
 CREATE DATABASE `alarm` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci; #
 grant all privileges on *.* to alarm@localhost identified by 'alarm';
 ```
-## （三）redis server 安装
+## 3 redis server 
 ``` shell
 yum install redis
 systemctl enable redis
 systemctl start redis
 ```
-## （四）ttserver 安装 
+## 4 ttserver  
 ``` shell
 yum install bzip2-devel gcc zlib-devel -y
 wget http://fallabs.com/tokyotyrant/tokyotyrant-1.1.41.tar.gz
@@ -87,13 +87,13 @@ mkdir /ttdata/
 ./ttserver -port 1978 -thnum 8 -tout 30 -dmn -pid /ttdata/tt.pid -kl -log /ttdata/tt.log -le -ulog /ttdata -ulim 128m -sid 1 -rts /ttdata/tt.rts /ttdata/ttdb.tch
 
 ```
-## （五）python3+django 安装 以及其他配置
+## 5 python3+django and other configurations
 ``` shell
  yum install python34 python34-pip python34-devel
 pip3 install django  pymysql django_crontab redis  pycrypto
 ```
-### 1、将 上一节中生成的私钥文件 copy到 /etc/zabbix/pri.key
-### 2 、编辑/etc/zabbix/wechat.conf
+###  (1)mv the rsa private key which made in above  to  /etc/zabbix/pri.key
+###  (2) edit /etc/zabbix/wechat.conf
 ``` shell
 [wechat]
 corp_id=******************
