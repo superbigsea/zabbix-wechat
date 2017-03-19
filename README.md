@@ -45,7 +45,7 @@ pip3 install  pycrypto
 ``` shell
 ssh-keygen -b 4096 -t rsa -f /etc/zabbix/pub
 mv /etc/zabbix/pub.pub /etc/zabbix/pub.key
-
+```
 ### 2、安装python3将zabbix_alarm_script/all.py拷贝到zabbix的alertscripts目录，编辑下面3个地方
 ``` shell
 zabbix_server_charturl = "http://127.0.0.1/zabbix/chart.php"  ##zabbix server 绘图接口
