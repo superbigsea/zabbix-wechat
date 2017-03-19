@@ -15,14 +15,7 @@
 本项目目的是在微信端搭建一个兼容各个监控系统的统一报警处理系统，能实现报警提醒，报警压缩，报警分类，报警汇总报表等功能。主服务器实质上是一台位于公网上的http服务器，位于各地的zabbix server将报警信息经过初步处理后通过http post请求将信息传送至主服务器，主服务器将信息经过一定的处理再完成和微信端（报警接受者）进行处理，上文中的功能都可以实现，需要使用者有一定的linux、python、zabbix基础。
 # 二 流程
 ```flow
-st=>start: Start
-op=>operation: Your Operation
-cond=>condition: Yes or No?
-e=>end
 
-st->op->cond
-cond(yes)->e
-cond(no)->op
 ```
 
 # 三 所需要的组件
