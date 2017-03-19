@@ -123,6 +123,13 @@ DATABASES = {
 ### 3、初始化数据库
 python3  manage.py  makemigrations
 ### 4、微信企业号菜单配置
+
+发消息的权限，依然参考https://github.com/X-Mars/Zabbix-Alert-WeChat
+如果要在微信菜单添加 汇总表
+
+ 先增加可信域名
+ ![](https://github.com/superbigsea/zabbix-wechat/blob/master/3.PNG)
+ 
 https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx7dec596b2599614c&redirect_uri=http%3a%2f%2f*********%2fall&response_type=code&scope=snsapi_base&state=1&connect_redirect=1#wechat_redirect
 ### 5、运行程序
 
