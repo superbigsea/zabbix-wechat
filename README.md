@@ -129,8 +129,12 @@ python3  manage.py  makemigrations
 
  先增加可信域名
  ![](https://github.com/superbigsea/zabbix-wechat/blob/master/3.PNG)
- 
+在微信菜单中添加网页跳转
+
+设置如下
 https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx7dec596b2599614c&redirect_uri=http%3a%2f%2f*********%2fall&response_type=code&scope=snsapi_base&state=1&connect_redirect=1#wechat_redirect
+把*******替换为 经过urlencode的域名
+http://tool.chinaz.com/tools/urlencode.aspx 这个网址可以encode域名
 ### 5、运行程序
 
 python3  manage.py runserver 0.0.0.0:80
