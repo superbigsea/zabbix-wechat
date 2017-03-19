@@ -85,7 +85,7 @@ url=http://**************
 host=****
 port=****
 ```其中上面4条为微信企业号的配置，可以参考https://github.com/X-Mars/Zabbix-Alert-WeChat
-url 为服务器80端口的域名
+url 为服务器80端口的域名 
 ### 2、配置数据库连接
 ```
 vim zabbixwechat/settings.py
