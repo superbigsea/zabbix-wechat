@@ -108,8 +108,8 @@ port=****
 
 The top 4 configuration can be referenced  in  https://github.com/X-Mars/Zabbix-Alert-WeChat.
 
-url 为服务器80端口的域名 
-### 2、配置数据库连接
+url:The url for main process  over internet
+### (3) Database configuration
 ```
 vim zabbixwechat/settings.py
 DATABASES = {
@@ -127,11 +127,12 @@ DATABASES = {
 }
 
 ``` 
-### 3、初始化数据库
+### (4) Initialize the database
 python3  manage.py  makemigrations
-### 4、微信企业号菜单配置
+### (5) WeChat Official Accounts Configuration
 
-发消息的权限，依然参考https://github.com/X-Mars/Zabbix-Alert-WeChat
+The configuration of the permissions of the message，also  reference https://github.com/X-Mars/Zabbix-Alert-WeChat
+If
 如果要在微信菜单添加 汇总表
 
  先增加可信域名
