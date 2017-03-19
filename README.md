@@ -32,10 +32,22 @@
 ssh-keygen -b 4096 -t rsa -f /etc/zabbix/pub
 mv /etc/zabbix/pub.pub /etc/zabbix/pub.key
 ```
-### 2、安装python3将all.py拷贝到zabbix的alertscripts目录，配置alertscripts
+### 2、安装python3将zabbix_alarm_script/all.py拷贝到zabbix的alertscripts目录，编辑下面3个地方
+``` shell
+zabbix_server_charturl = "http://127.0.0.1/zabbix/chart.php"  ##zabbix server 绘图接口
+ttserver = "http://www.example.com:1978"   ##公网的ttserver 安装步骤见下面
+server_url = "http://www.example.com/getvalue" ##公网的主服务器接口
+```
 ### 3、生成cookies
-### 4、配置主服务器地址、配置ttserver地址
+``` shell
+curl -c /tmp/zabbix_cookie -d "name=Admin&password=zabbix&autologin=1&enter=Sign+in"  http://127.0.0.1/zabbix/index.php
+```地址更改为zabbix server的地址，生成cookie的目的是便于脚本绘图时候不用认证了。
 ### 5、配置zabbix的action
+``` shell
+{TRIGGER.NAME}@@@{TRIGGER.DESCRIPTION}@@@{HOSTNAME}@@@{TRIGGER.SEVERITY}@@@{ITEM.ID}@@@{TRIGGER.STATUS}@@@{HOST.CONN}@@@{TRIGGER.HOSTGROUP.NAME}@@@{EVENT.ID}@@@
+```
+action 只需要传送一个参数，
+
 ## （二）mysql server 安装
 ``` shell
 yum install mariadb-server -y
