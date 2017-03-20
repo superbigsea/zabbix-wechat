@@ -9,7 +9,7 @@ import logging
 import sys
 import sqlalchemy
 import codecs
-import redis
+import memcache
 from zabbix_wechat_db.models import *
 logging.basicConfig(
     filename='/var/log/zabbix/wechat.log',
@@ -21,11 +21,10 @@ cf.read("/etc/zabbix/wechat.conf")
 
 
 def gettoken():
-    redis_host=cf.get("redis", "host")
-    redis_port=cf.get("redis", "port")
+    memcached_host=cf.get("memcached", "host")
     try:
-        r = redis.Redis(host=redis_host, port=redis_port)
-        if r.get('weixin_token')==None:
+        mc = memcache.Client(memcached_host)
+        if mc.get('weixintoken')==None:
             corp_id = cf.get("wechat", "corp_id")
             corp_secret = cf.get("wechat", "corp_secret")
             gettoken_url = 'https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=' + \
@@ -35,9 +34,9 @@ def gettoken():
             token_json = json.loads(token_data)
             token_json.keys()
             token = token_json['access_token']
-            r.set('weixin_token',token,ex=7000)
+            mc.set('weixintoken',token,ex=7000)
         else:
-            token = r.get('weixin_token').decode('utf-8')
+            token = r.get('weixintoken')
     except Exception as e:
             corp_id = cf.get("wechat", "corp_id")
             corp_secret = cf.get("wechat", "corp_secret")
