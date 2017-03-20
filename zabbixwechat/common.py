@@ -23,20 +23,31 @@ cf.read("/etc/zabbix/wechat.conf")
 def gettoken():
     redis_host=cf.get("redis", "host")
     redis_port=cf.get("redis", "port")
-    r = redis.Redis(host=redis_host, port=redis_port)
-    if r.get('weixin_token')==None:
-        corp_id = cf.get("wechat", "corp_id")
-        corp_secret = cf.get("wechat", "corp_secret")
-        gettoken_url = 'https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=' + \
-            corp_id + '&corpsecret=' + corp_secret
-        token_file = urllib.request.urlopen(gettoken_url)
-        token_data = token_file.read().decode('utf-8')
-        token_json = json.loads(token_data)
-        token_json.keys()
-        token = token_json['access_token']
-        r.set('weixin_token',token,ex=7000)
-    else:
-        token = r.get('weixin_token').decode('utf-8')
+    try:
+        r = redis.Redis(host=redis_host, port=redis_port)
+        if r.get('weixin_token')==None:
+            corp_id = cf.get("wechat", "corp_id")
+            corp_secret = cf.get("wechat", "corp_secret")
+            gettoken_url = 'https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=' + \
+                corp_id + '&corpsecret=' + corp_secret
+            token_file = urllib.request.urlopen(gettoken_url)
+            token_data = token_file.read().decode('utf-8')
+            token_json = json.loads(token_data)
+            token_json.keys()
+            token = token_json['access_token']
+            r.set('weixin_token',token,ex=7000)
+        else:
+            token = r.get('weixin_token').decode('utf-8')
+    except Exception as e:
+            corp_id = cf.get("wechat", "corp_id")
+            corp_secret = cf.get("wechat", "corp_secret")
+            gettoken_url = 'https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=' + \
+                corp_id + '&corpsecret=' + corp_secret
+            token_file = urllib.request.urlopen(gettoken_url)
+            token_data = token_file.read().decode('utf-8')
+            token_json = json.loads(token_data)
+            token_json.keys()
+            token = token_json['access_token']
     return token
 def findgroupidfromwechat(groupname):
     party = cf.get("wechat", "toparty")
@@ -144,3 +155,9 @@ def senddatanews(content,toparty=cf.get("wechat", "toparty"),agentid = cf.get("w
     send_request = urllib.request.Request(send_url, send_data)
     response = urllib.request.urlopen(send_request)
     logging.info(response.read())
+# def query_db(query_string):
+#    logging.info(query_string.encode())
+#    connection_string=cf.get("database","connection")
+#    engine = sqlalchemy.create_engine(connection_string)
+#    res = engine.execute(query_string)
+#    return res
