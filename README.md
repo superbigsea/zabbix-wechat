@@ -108,6 +108,7 @@ corp_secret=*******************
 toparty=***********
 agentid=*************
 url=http://**************
+language=en_US
 [memcached]
 host=*****
 port=****
@@ -116,6 +117,7 @@ port=****
 The top 4 configuration can be referenced  in  https://github.com/X-Mars/Zabbix-Alert-WeChat.
 
 url:The url for main process  over internet
+language:en_US or zh_Hans
 ### (3) Database configuration
 ```
 vim zabbixwechat/settings.py
@@ -245,12 +247,15 @@ corp_secret=*******************
 toparty=***********
 agentid=*************
 url=http://**************
+language=zh_Hans
+
 [memcached]
 host=****
 port=****
 ```
 其中上面4条为微信企业号的配置，可以参考https://github.com/X-Mars/Zabbix-Alert-WeChat
 url 为服务器80端口的域名 
+language:目前支持 zh_Hans en_US
 ### 2、配置数据库连接
 ```
 vim zabbixwechat/settings.py
