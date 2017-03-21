@@ -1,0 +1,86 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-21 16:18+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: zabbixwechat/alarm_depend.py:19 zabbixwechat/boardcastsend.py:19
+#: zabbixwechat/multcomfirm.py:45 zabbixwechat/singlecomfirm.py:34
+#: zabbixwechat/tempclosealarm.py:32
+msgid "Operate successfully"
+msgstr "操作成功"
+
+#: zabbixwechat/getvalue.py:188
+msgid "Host"
+msgstr "报警主机"
+
+#: zabbixwechat/getvalue.py:188
+msgid "Time"
+msgstr "时间"
+
+#: zabbixwechat/getvalue.py:191
+msgid "Region"
+msgstr "区域"
+
+#: zabbixwechat/getvalue.py:194
+msgid "On duty"
+msgstr "值班人员"
+
+#: zabbixwechat/getvalue.py:200
+msgid "Confirm Alarm"
+msgstr "确认报警"
+
+#: zabbixwechat/getvalue.py:203
+msgid "Alarm description:{0}"
+msgstr "报警说明:{0}"
+
+#: zabbixwechat/getvalue.py:207
+msgid ""
+"This alarm occurred {0} times in the last day,{1} times in the last week,"
+"Click on this to temporarily closed it for 12 hours"
+msgstr "该报{0}次，一周内发送{1}次,点击本行临时关闭该主机的该报警12小时"
+
+#: zabbixwechat/getvalue.py:210
+msgid "View Top Message"
+msgstr "查看Top信息"
+
+#: zabbixwechat/getvalue.py:213
+msgid "View the top ten lagest file in the partition"
+msgstr "查看该分区下最大的10个文件"
+
+#: zabbixwechat/multcomfirm.py:42
+msgid "In region {0},{1} the above alarms have been confirmed by {2}"
+msgstr "在区域{0},{1}以上报警被用户{2}确认"
+
+#: zabbixwechat/multcomfirm.py:47 zabbixwechat/singlecomfirm.py:36
+msgid "This alame has been confirmed before"
+msgstr "该报警已经被确认过"
+
+#: zabbixwechat/singlecomfirm.py:31
+msgid ""
+"Alarm has been confirmed\n"
+"Confirm user :{0} \n"
+"{1} \n"
+"ID：{2}"
+msgstr "报警状态：已确认\n确认人： :{0} \n{1} \nID：{2}"
+
+#: zabbixwechat/testecho.py:14
+msgid "test2"
+msgstr ""
+
+#, fuzzy
+#~ msgid "This alarm occurred"
+#~ msgstr "该报次，一周内发送次,点击本行临时关闭该主机的该报警12小"

@@ -10,6 +10,8 @@ import sys
 import sqlalchemy
 import codecs
 import memcache
+import gettext
+import os
 from zabbix_wechat_db.models import *
 logging.basicConfig(
     filename='/var/log/zabbix/wechat.log',
@@ -19,6 +21,11 @@ logging.basicConfig(
 cf = configparser.ConfigParser()
 cf.read("/etc/zabbix/wechat.conf")
 
+def callgettext():
+    
+    return gettext.translation('django', localedir=os.path.join(os.path.dirname(os.path.abspath(__file__)),'locale'), languages=[cf.get("wechat", "language")]).install(True)
+     
+    
 
 def gettoken():
     memcached_host=cf.get("memcached", "host")

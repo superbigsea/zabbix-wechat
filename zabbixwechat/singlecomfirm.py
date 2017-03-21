@@ -9,6 +9,7 @@ from zabbix_wechat_db.models import ALARM_INFO
 
 @csrf_exempt
 def singlecomfirm(request):
+    callgettext()
     code = request.GET['code']
     username = getusername(code)
     state = request.GET['state']
@@ -28,11 +29,10 @@ def singlecomfirm(request):
             CONFIRM_TIME=comfirmtime,
             CONFIRM_PERIOD=comfirmperiod,
             CONFIRM_USER_ID=nickname)
-        text = "确认状态：已确认 \n确认人：{0} \n{1} \n报警id：{2}".format(
+        text = _("Alarm has been confirmed\nConfirm user :{0} \n{1} \nID：{2}").format(
             nickname, alarm_title, ID)
-        senddata(text, toparty, toagent)
-        respone = "确认成功"
+        senddata(text,toparty,toagent)
+        respone = _("Operate successfully")
     else:
-        NICK_NAME = DATA.CONFIRM_USER_ID
-        respone = "该告警已经被用户{0}确认过了".format(NICK_NAME)
+        respone = _("This alame has been confirmed before")
     return HttpResponse(respone)
