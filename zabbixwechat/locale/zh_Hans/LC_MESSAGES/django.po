@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-21 16:18+0800\n"
+"POT-Creation-Date: 2017-03-23 11:57+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,10 +18,18 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: zabbixwechat/alarm_depend.py:19 zabbixwechat/boardcastsend.py:19
-#: zabbixwechat/multcomfirm.py:45 zabbixwechat/singlecomfirm.py:34
+#: zabbixwechat/multcomfirm.py:45 zabbixwechat/singlecomfirm.py:35
 #: zabbixwechat/tempclosealarm.py:32
 msgid "Operate successfully"
 msgstr "操作成功"
+
+#: zabbixwechat/checkdbnoresolved.py:29
+msgid "There are {0} alarms in regin {1}  has not been comfirmed"
+msgstr "在区域 {1} 目前还有{0}条级别大于通知的报警未解除并且10分钟内未被人确认"
+
+#: zabbixwechat/checkdbnoresolved.py:32
+msgid "View datail"
+msgstr "查看详情"
 
 #: zabbixwechat/getvalue.py:188
 msgid "Host"
@@ -65,17 +73,21 @@ msgstr "查看该分区下最大的10个文件"
 msgid "In region {0},{1} the above alarms have been confirmed by {2}"
 msgstr "在区域{0},{1}以上报警被用户{2}确认"
 
-#: zabbixwechat/multcomfirm.py:47 zabbixwechat/singlecomfirm.py:36
+#: zabbixwechat/multcomfirm.py:47 zabbixwechat/singlecomfirm.py:37
 msgid "This alame has been confirmed before"
 msgstr "该报警已经被确认过"
 
-#: zabbixwechat/singlecomfirm.py:31
+#: zabbixwechat/singlecomfirm.py:32
 msgid ""
 "Alarm has been confirmed\n"
 "Confirm user :{0} \n"
 "{1} \n"
 "ID：{2}"
-msgstr "报警状态：已确认\n确认人： :{0} \n{1} \nID：{2}"
+msgstr ""
+"报警状态：已确认\n"
+"确认人： :{0} \n"
+"{1} \n"
+"ID：{2}"
 
 #: zabbixwechat/testecho.py:14
 msgid "test2"

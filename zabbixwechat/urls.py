@@ -25,6 +25,8 @@ from zabbixwechat.report import report
 from zabbixwechat.tempclosealarm import tempclosealarm
 from zabbixwechat.tempcloselist import tempcloselist
 from zabbixwechat.multremovetempcloselist import multremovetempcloselist
+from zabbixwechat.checkdbnoresolved import checkdbnoresolved
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -35,6 +37,7 @@ urlpatterns = [
     url(r'^alarm/boardcastsend', boardcastsend),
     url(r'^alarm/detail', detail),
     url(r'^alarm/report', report),
+    url(r'^alarm/checkdbnoresolved', checkdbnoresolved),
     url(r'^alarm/tempclosealarm', tempclosealarm),
     url(r'^alarm/tempcloselist', tempcloselist),
     url(r'^alarm/multremovetempcloselist', multremovetempcloselist),
