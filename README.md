@@ -4,7 +4,7 @@
 
 作者:superbigsea 邮箱:superbigsea@sina.com qq群238705984
 
-做出来的效果 http://mp.weixin.qq.com/s?__biz=MzIzNjUxMzk2NQ==&mid=2247484693&idx=1&sn=ae7482230a90476f912eaada2849c861&chksm=e8d7fad7dfa073c17b364e15fe4464d2b1f09a49fcc66906856e72ff15cc2b7fc183af7f225a&mpshare=1&scene=23&srcid=0228sGfPKDoLskzjzaMv5j1b#rd
+做出来的效果  [一个优雅的报警处理系统范例：]( http://mp.weixin.qq.com/s?__biz=MzIzNjUxMzk2NQ==&mid=2247484693&idx=1&sn=ae7482230a90476f912eaada2849c861&chksm=e8d7fad7dfa073c17b364e15fe4464d2b1f09a49fcc66906856e72ff15cc2b7fc183af7f225a&mpshare=1&scene=23&srcid=0228sGfPKDoLskzjzaMv5j1b#rd)  
 
 作为目前全球最大的男性同性交友平台，还是插一段中文的交友信息啊。
 about me:前解放军军官，现在从事云计算工作。为了儿时理想，加入军队服役10年，参加过多次重要任务；为了青年时期理想现在从事云计算行业（青年时期买不起geforce 6800，于是诞生了能不能租用别人的显卡通过网络传输画面方式打游戏的想法）。谈完理想和情怀，切入交友正题，公司在北京和上海都招人，我们只有15薪、八险一金、餐补、通讯补、交通补、电脑补这些我都不想说了，每年也就两次调薪而已，每天下午茶、每月生日会。拉钩网页https://www.lagou.com/gongsi/j149630.html
@@ -108,6 +108,7 @@ corp_secret=*******************
 toparty=***********
 agentid=*************
 url=http://**************
+language=en_US
 [memcached]
 host=*****
 port=****
@@ -116,6 +117,7 @@ port=****
 The top 4 configuration can be referenced  in  https://github.com/X-Mars/Zabbix-Alert-WeChat.
 
 url:The url for main process  over internet
+language:en_US or zh_Hans
 ### (3) Database configuration
 ```
 vim zabbixwechat/settings.py
@@ -245,12 +247,15 @@ corp_secret=*******************
 toparty=***********
 agentid=*************
 url=http://**************
+language=zh_Hans
+
 [memcached]
 host=****
 port=****
 ```
 其中上面4条为微信企业号的配置，可以参考https://github.com/X-Mars/Zabbix-Alert-WeChat
 url 为服务器80端口的域名 
+language:目前支持 zh_Hans en_US
 ### 2、配置数据库连接
 ```
 vim zabbixwechat/settings.py
