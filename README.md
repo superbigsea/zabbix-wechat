@@ -193,7 +193,8 @@ server_url = "http://www.example.com/getvalue" ##公网的主服务器接口
 ### 3、生成cookies
 ``` shell
 curl -c /tmp/zabbix_cookie -d "name=Admin&password=zabbix&autologin=1&enter=Sign+in"  http://127.0.0.1/zabbix/index.php
-```地址更改为zabbix server的地址，生成cookie的目的是便于脚本绘图时候不用认证了。
+```
+地址更改为zabbix server的地址，生成cookie的目的是便于脚本绘图时候不用认证了。
 ### 5、配置zabbix的action
 ``` shell
 {TRIGGER.NAME}@@@{TRIGGER.DESCRIPTION}@@@{HOSTNAME}@@@{TRIGGER.SEVERITY}@@@{ITEM.ID}@@@{TRIGGER.STATUS}@@@{HOST.CONN}@@@{TRIGGER.HOSTGROUP.NAME}@@@{EVENT.ID}@@@
