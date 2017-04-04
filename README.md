@@ -30,7 +30,7 @@ The purpose of this project is to build up an  auto-notification  alarm system w
 ## 2.Other components：mysql,memcached(Used to cache wechat's token, you can also use redis),tt server(Object storage,you can also use others like swift or ceph.)
 ## 3.A secondary domain with 80 and 1978 ports opened.
 ## 5.A WeChat Official Accounts （微信企业号）. It can be registered in https://admin.wechat.com/ or https://qy.weixin.qq.com/  
-# Install and deployt
+# Install and deploy
  
 The entire installation configuration is rather complex,needing plenty of  components.
 ## 1 Zabbix server alert scripts
@@ -193,7 +193,8 @@ server_url = "http://www.example.com/getvalue" ##公网的主服务器接口
 ### 3、生成cookies
 ``` shell
 curl -c /tmp/zabbix_cookie -d "name=Admin&password=zabbix&autologin=1&enter=Sign+in"  http://127.0.0.1/zabbix/index.php
-```地址更改为zabbix server的地址，生成cookie的目的是便于脚本绘图时候不用认证了。
+```
+地址更改为zabbix server的地址，生成cookie的目的是便于脚本绘图时候不用认证了。
 ### 5、配置zabbix的action
 ``` shell
 {TRIGGER.NAME}@@@{TRIGGER.DESCRIPTION}@@@{HOSTNAME}@@@{TRIGGER.SEVERITY}@@@{ITEM.ID}@@@{TRIGGER.STATUS}@@@{HOST.CONN}@@@{TRIGGER.HOSTGROUP.NAME}@@@{EVENT.ID}@@@
