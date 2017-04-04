@@ -41,9 +41,9 @@ def gettoken():
             token_json = json.loads(token_data)
             token_json.keys()
             token = token_json['access_token']
-            mc.set('weixintoken',token,ex=7000)
+            mc.set('weixintoken',token,time=7000)
         else:
-            token = r.get('weixintoken')
+            token = mc.get('weixintoken')
     except Exception as e:
             corp_id = cf.get("wechat", "corp_id")
             corp_secret = cf.get("wechat", "corp_secret")
