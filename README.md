@@ -36,12 +36,13 @@ The entire installation configuration is rather complex,needing plenty of  compo
 ## 1 Zabbix server alert scripts
 ### (1) Install python3.4 and other components
 ``` shell
- yum install python34 python34-pip python34-devel
-pip3 install  pycrypto
+ yum install python34 python34-pip python34-devel gcc
+pip3 install  pycrypto sqlalchemy
 ```
 ### (2) Generate an rsa key pair
 ``` shell
 ssh-keygen -b 4096 -t rsa -f /etc/zabbix/pub
+mv /etc/zabbix/pub /etc/zabbix/pri.key
 mv /etc/zabbix/pub.pub /etc/zabbix/pub.key
 ```
 ### (3) Move zabbix_alarm_script/all.py to zabbix alertscripts dir and edit it 
