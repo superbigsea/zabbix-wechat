@@ -263,7 +263,7 @@ language:目前支持 zh_Hans en_US
 vim zabbixwechat/settings.py
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'ENGINE': sls'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'alarm',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': 'alarm',
@@ -277,8 +277,12 @@ DATABASES = {
 
 ``` 
 ### 3、初始化数据库
+``` shell
 python3  manage.py  makemigrations
+python3 manage.py migrate
+```
 ### 微信企业号菜单配置
 ### 4、运行程序
-
+``` shell
 python3  manage.py runserver 0.0.0.0:80
+```
