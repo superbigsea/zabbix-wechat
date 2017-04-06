@@ -97,7 +97,7 @@ mkdir /ttdata/
 ## 5 Python3+django and other configurations
 ``` shell
  yum install python34 python34-pip python34-devel
-pip3 install django  pymysql django_crontab redis  pycrypto python-memcached
+pip3 install django  pymysql django_crontab redis  pycrypto python-memcached  sqlalchemy
 ```
 ###  (1) Move the rsa private key which made in above  to  /etc/zabbix/pri.key
 ###  (2) Edit /etc/zabbix/wechat.conf
@@ -138,6 +138,7 @@ DATABASES = {
 ``` 
 ### (4) Initialize the database
 python3  manage.py  makemigrations
+python3  manage.py migrate
 ### (5) WeChat Official Accounts Configuration
 
 The configuration of the permissions of the message，also  reference https://github.com/X-Mars/Zabbix-Alert-WeChat
