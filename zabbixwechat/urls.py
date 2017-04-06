@@ -19,7 +19,6 @@ from zabbixwechat.all import all
 from zabbixwechat.multcomfirm import multcomfirm
 from zabbixwechat.singlecomfirm import singlecomfirm
 from zabbixwechat.getvalue import getvalue
-from zabbixwechat.boardcastsend import boardcastsend
 from zabbixwechat.detail import detail
 from zabbixwechat.report import report
 from zabbixwechat.tempclosealarm import tempclosealarm
@@ -34,7 +33,6 @@ urlpatterns = [
     url(r'^alarm/multcomfirm', multcomfirm),
     url(r'^alarm/singlecomfirm', singlecomfirm),
     url(r'^alarm/getvalue', getvalue),
-    url(r'^alarm/boardcastsend', boardcastsend),
     url(r'^alarm/detail', detail),
     url(r'^alarm/report', report),
     url(r'^alarm/checkdbnoresolved', checkdbnoresolved),
