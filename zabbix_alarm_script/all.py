@@ -32,9 +32,6 @@ logging.basicConfig(
     level=logging.INFO
 )
 
-default_encoding = 'utf-8'
-
-
 def savepic(itemid, eventid):
     cookie = http.cookiejar.MozillaCookieJar()
     cookie.load('/tmp/zabbix_cookie', ignore_discard=True, ignore_expires=True)
@@ -51,13 +48,10 @@ def savepic(itemid, eventid):
     req = urllib.request.Request(
         url='{1}/{0}.png'.format(eventid, ttserver), data=response.read(), method='PUT')
     urllib.request.urlopen(req)
-default_encoding = 'utf-8'
-if sys.getdefaultencoding() != default_encoding:
-    reload(sys)
-    sys.setdefaultencoding(default_encoding)
-sys.stdout = codecs.getwriter('utf8')(sys.stdout.buffer)
+
 logging.info(sys.argv[1])
 message = sys.argv[1]
+
 alarm_title = message.split("@@@")[0]
 triggerdescription = message.split("@@@")[1]
 host_name = message.split("@@@")[2]

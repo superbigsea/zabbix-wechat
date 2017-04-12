@@ -36,12 +36,13 @@ The entire installation configuration is rather complex,needing plenty of  compo
 ## 1 Zabbix server alert scripts
 ### (1) Install python3.4 and other components
 ``` shell
- yum install python34 python34-pip python34-devel
-pip3 install  pycrypto
+ yum install python34 python34-pip python34-devel gcc
+pip3 install  pycrypto sqlalchemy
 ```
 ### (2) Generate an rsa key pair
 ``` shell
 ssh-keygen -b 4096 -t rsa -f /etc/zabbix/pub
+mv /etc/zabbix/pub /etc/zabbix/pri.key
 mv /etc/zabbix/pub.pub /etc/zabbix/pub.key
 ```
 ### (3) Move zabbix_alarm_script/all.py to zabbix alertscripts dir and edit it 
@@ -263,7 +264,7 @@ language:目前支持 zh_Hans en_US
 vim zabbixwechat/settings.py
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'ENGINE': sls'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'alarm',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': 'alarm',
@@ -277,8 +278,12 @@ DATABASES = {
 
 ``` 
 ### 3、初始化数据库
+``` shell
 python3  manage.py  makemigrations
+python3 manage.py migrate
+```
 ### 微信企业号菜单配置
 ### 4、运行程序
-
+``` shell
 python3  manage.py runserver 0.0.0.0:80
+```
