@@ -147,6 +147,7 @@ def senddata(
         {
             "url": "{0}".format(detailurl),
             "title": "{0} {1}".format(_(ALARM_STATUS),ALARM_TITLE),
+            "picurl": "{0}".format(imageurl)
         },
         {
             "title": "{4}:{1}({2})\n{5}:{3}".format(ALARM_STATUS, HOST_NAME, HOSTCONN, TIME,_("Host"),_("Time")),
@@ -170,7 +171,6 @@ def senddata(
         text = {
             "title":_("This alarm occurred {0} times in the last day,{1} times in the last week,Click on this to temporarily closed it for 12 hours").format(ONEDAYTIMES,ONEWEEKTIMES),"url": "{0}".format(tempcloseurl),  }
         send_values.append(text)
-    send_values[0].update( {"picurl": "{0}".format(imageurl)})
     toparty = findgroupid(HOST_GROUP)
     toagent = findagentid(HOST_GROUP)
     senddatanews(send_values,toparty,toagent)
