@@ -1,4 +1,4 @@
-# zabbix-wechat
+# zabbix-wechat [![star this repo](http://github-svg-buttons.herokuapp.com/star.svg?user=superbigsea&repozabbix-wechat&style=flat&background=1081C1)](http://github.com/liuwons/wxBot) [![fork this repo](http://github-svg-buttons.herokuapp.com/fork.svg?user=superbigsea&repo=zabbix-wechat&style=flat&background=1081C1)](http://github.com/superbigsea/zabbix-wechat/fork) ![python](https://img.shields.io/badge/python-3.4-ff69b4.svg)
 
 ------
 
