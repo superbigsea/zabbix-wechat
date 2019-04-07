@@ -152,7 +152,7 @@ def senddata(
             "title": "{4}:{1}({2})\n{5}:{3}".format(ALARM_STATUS, HOST_NAME, HOSTCONN, TIME,"Host","Time"),
         },
         {
-            "title": "{2}：{0}\nID:{1}".format(HOST_GROUP,ID,"Region"),"picurl": "{0}".format(serverityimageurl),
+            "title": "{2}：{0}\nID:{1}".format(HOST_GROUP,ID,"Region"),
         },
         {
             "title": "{1}:{0}".format(DUTY_ROSTER,"On duty"),
