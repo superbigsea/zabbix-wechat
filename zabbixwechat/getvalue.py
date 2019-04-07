@@ -145,30 +145,30 @@ def senddata(
     send_values = [
         {
             "url": "{0}".format(detailurl),
-            "title": "{0} {1}".format(_(ALARM_STATUS),ALARM_TITLE),
+            "title": "{0} {1}".format(ALARM_STATUS,ALARM_TITLE),
             "picurl": "{0}".format(imageurl)
         },
         {
-            "title": "{4}:{1}({2})\n{5}:{3}".format(ALARM_STATUS, HOST_NAME, HOSTCONN, TIME,_("Host"),_("Time")),
+            "title": "{4}:{1}({2})\n{5}:{3}".format(ALARM_STATUS, HOST_NAME, HOSTCONN, TIME,"Host","Time"),
         },
         {
-            "title": "{2}：{0}\nID:{1}".format(HOST_GROUP,ID,_("Region")),"picurl": "{0}".format(serverityimageurl),
+            "title": "{2}：{0}\nID:{1}".format(HOST_GROUP,ID,"Region"),"picurl": "{0}".format(serverityimageurl),
         },
         {
-            "title": "{1}:{0}".format(DUTY_ROSTER,_("On duty")),
+            "title": "{1}:{0}".format(DUTY_ROSTER,"On duty"),
         },
 
     ]
     
     if ALARM_STATUS == "PROBLEM":
-        text = {"title": _("Confirm Alarm"), "url": "{0}".format(comfirmurl), }
+        text = {"title": "Confirm Alarm", "url": "{0}".format(comfirmurl), }
         send_values.append(text)
     if  len(MESSAGE)!=0: 
-        text = {"title": _("Alarm description:{0}").format(MESSAGE), }
+        text = {"title": "Alarm description:{0}".format(MESSAGE), }
         send_values.insert(3, text)
     if ONEDAYTIMES > 3 or ONEWEEKTIMES > 7:
         text = {
-            "title":_("This alarm occurred {0} times in the last day,{1} times in the last week,Click on this to temporarily closed it for 12 hours").format(ONEDAYTIMES,ONEWEEKTIMES),"url": "{0}".format(tempcloseurl),  }
+            "title":"This alarm occurred {0} times in the last day,{1} times in the last week,Click on this to temporarily closed it for 12 hours".format(ONEDAYTIMES,ONEWEEKTIMES),"url": "{0}".format(tempcloseurl),  }
         send_values.append(text)
     toparty = findgroupid(HOST_GROUP)
     toagent = findagentid(HOST_GROUP)
