@@ -30,7 +30,6 @@ with open('/etc/zabbix/pri.key') as f:
 
 @csrf_exempt
 def getvalue(request):
-    callgettext()
     random_generator = Random.new().read
     cipher_text=request.POST['data']
     rsakey = RSA.importKey(key)
