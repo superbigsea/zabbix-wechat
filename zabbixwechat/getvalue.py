@@ -135,7 +135,8 @@ def senddata(
         ID,SEVERITY):
     url=cf.get("wechat", "url")
     url_encode=parse.quote_plus(url)
-    imageurl = "http://{1}/{0}.png".format(ID,url)
+    imageurl=cf.get("wechat", "imageurl")
+    imageurl = "http://{1}/{0}.png".format(ID,imageurl)
     comfirmurl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx7dec596b2599614c&redirect_uri={1}singlecomfirm&response_type=code&scope=snsapi_base&state={0}&connect_redirect=1#wechat_redirect".format(
         ID,url_encode)
     detailurl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx7dec596b2599614c&redirect_uri={1}detail&response_type=code&scope=snsapi_base&state={0}#wechat_redirect".format(
